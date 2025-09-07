@@ -1,0 +1,16 @@
+# Terraform state
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Editor files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# OS files
+Thumbs.db
