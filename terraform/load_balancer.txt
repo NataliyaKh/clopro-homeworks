@@ -20,6 +20,10 @@ resource "yandex_lb_network_load_balancer" "lamp_nlb" {
       tcp_options {
         port = 80
       }
+      timeout             = "5s"
+      interval            = "10s"
+      healthy_threshold   = 2
+      unhealthy_threshold = 2
     }
   }
 }
