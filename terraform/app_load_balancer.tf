@@ -15,7 +15,7 @@ resource "yandex_alb_load_balancer" "lamp_alb" {
 
     http {
       handler {
-        http_router_id = yandex_alb_http_router.http_router.id
+        http_router_id = yandex_alb_http_router.lamp_router.id
       }
     }
 
@@ -28,13 +28,13 @@ resource "yandex_alb_load_balancer" "lamp_alb" {
   }
 }
 
-resource "yandex_alb_http_router" "http_router" {
+resource "yandex_alb_http_router" "lamp_router" {
   name = "lamp-router"
 }
 
-resource "yandex_alb_virtual_host" "virtual_host" {
+resource "yandex_alb_virtual_host" "lamp_virtual_host" {
   name           = "lamp-virtual-host"
-  http_router_id = yandex_alb_http_router.http_router.id
+  http_router_id = yandex_alb_http_router.lamp_router.id
 
   route {
     name = "default-route"

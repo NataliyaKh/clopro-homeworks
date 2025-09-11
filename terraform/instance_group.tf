@@ -28,9 +28,13 @@ resource "yandex_compute_instance_group" "lamp_group" {
       ssh-keys = "ubuntu:${var.public_key}"
 
       user-data = <<-EOT
-        #!/bin/bash
-        echo "<html><body><h1>Hello from LAMP instance!</h1><img src='https://storage.yandexcloud.net/nkh-2025-09-09/trees.jpg' /></body></html>" > /var/www/html/index.html
-      EOT
+      #!/bin/bash
+      apt update
+      apt install -y apache2
+      echo "<html><body><h1>Hello from LAMP instance!</h1><img src='https://storage.yandexcloud.net/nkh-2025-09-09/trees.jpg' /></body></html>" > /var/www/html/index.html
+      systemctl enable apache2
+      systemctl start apache2
+EOT
     }
 
     scheduling_policy {
