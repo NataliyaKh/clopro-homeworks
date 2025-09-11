@@ -17,3 +17,18 @@ variable "public_key" {
   description = "SSH public key"
   type        = string
 }
+
+variable "access_key" {
+  description = "Access key for Yandex Object Storage"
+  type        = string
+}
+
+variable "secret_key" {
+  description = "Secret key for Yandex Object Storage"
+  type        = string
+}
+
+variable "yc_instance_service_account_id" {
+  description = "Service account ID"
+  type        = string
+}
